@@ -32,7 +32,7 @@ Phù hợp cho: SEO specialist, Front-end Dev, Content Editor, Agency kiểm tra
 
 ![Demo](assets/demo.gif)
 
-## Tính năng hiện tại
+## Current Features
 
 - Phát hiện thẻ trùng lặp trong `<head>` (title, meta description, canonical, robots, og:title, og:description…)
 
@@ -44,7 +44,7 @@ Phù hợp cho: SEO specialist, Front-end Dev, Content Editor, Agency kiểm tra
 
 - Không gửi dữ liệu ra ngoài → 100% privacy
 
-## Cài đặt nhanh (dev mode)
+## Quick Installation (Dev Mode)
 
 1. Clone hoặc download repo này
 
@@ -58,7 +58,7 @@ Phù hợp cho: SEO specialist, Front-end Dev, Content Editor, Agency kiểm tra
 
 Edge cũng làm tương tự tại `edge://extensions`
 
-## Publish lên Store (đã test thành công)
+## Publish to Store (Successfully Tested)
 
 - Đã publish trên cả Chrome Web Store và Microsoft Edge Add-ons
 
@@ -66,7 +66,7 @@ Edge cũng làm tương tự tại `edge://extensions`
 
 - Tối ưu dung lượng < 200KB
 
-## Tính năng sắp tới (đang phát triển & bạn có thể góp ý)
+## Upcoming Features (In Development & Open for Suggestions)
 
 - [ ] So sánh head tag giữa 2 URL (rất hay khi kiểm tra staging vs production)
 
@@ -88,9 +88,9 @@ Edge cũng làm tương tự tại `edge://extensions`
 
 - [ ] Popup chi tiết + số lượng lỗi
 
-## Đóng góp
+## Contribute
 
-Rất hoan nghênh pull request! Đặc biệt:
+Rất hoan nghênh tham gia phát triển dự án :
 
 - Thêm ngôn ngữ (i18n) - hiện tại có tiếng Việt + tiếng Anh
 
@@ -106,6 +106,6 @@ MIT © 2025
 
 ⭐ Nếu bạn thấy hữu ích, hãy cho 1 star để mình có động lực phát triển tiếp nhé!
 
-Có vấn đề hoặc yêu cầu tính năng mới → mở issue hoặc inbox mình nha.
+Có vấn đề hoặc yêu cầu tính năng mới → mở issue hoặc inbox admin.
 
 Happy SEO! 🚀
