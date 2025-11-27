@@ -1,6 +1,6 @@
 # MetaTag Auditor - Chrome & Edge Extension ✨
 
-<img src="https://raw.githubusercontent.com/FPT-BangPV2/headtag-checker/blob/main/extension/icon.png" align="right" width="128px"/>
+<img src="https://raw.githubusercontent.com/FPT-BangPV2/headtag-checker/main/extension/icon.png" align="right" width="128px"/>
 
 **Phát hiện ngay lập tức các lỗi SEO nghiêm trọng trong phần `<head>` và heading trên trang:**
 
@@ -37,10 +37,6 @@ Phù hợp cho: SEO specialist, Front-end Dev, Content Editor, Agency kiểm tra
 - Phát hiện thẻ trùng lặp trong `<head>` (title, meta description, canonical, robots, og:title, og:description…)
 
 - Kiểm tra cấu trúc heading (multiple H1, thiếu H1, H2-H6 bị bỏ qua)
-
-- Highlight trực tiếp trên trang (màu đỏ = lỗi nghiêm trọng, vàng = cảnh báo)
-
-- Popup chi tiết + số lượng lỗi
 
 - Hỗ trợ hreflang validation cơ bản
 
@@ -87,6 +83,8 @@ Edge cũng làm tương tự tại `edge://extensions`
 - [ ] Lịch sử kiểm tra các trang đã duyệt
 
 - [ ] Whitelist/Blacklist domain
+- [ ] Highlight trực tiếp trên trang (màu đỏ = lỗi nghiêm trọng, vàng = cảnh báo)
+- [ ] Popup chi tiết + số lượng lỗi
 
 ## Đóng góp
 
@@ -104,9 +102,8 @@ MIT © 2025
 
 ---
 
-⭐ Nếu bạn thấy hữu ích, hãy cho 1 star để mình có động lực phát triển tiếp nhé!  
+⭐ Nếu bạn thấy hữu ích, hãy cho 1 star để mình có động lực phát triển tiếp nhé!
 
 Có vấn đề hoặc yêu cầu tính năng mới → mở issue hoặc inbox mình nha.
 
 Happy SEO! 🚀
- 
