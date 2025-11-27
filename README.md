@@ -1,6 +1,6 @@
 # MetaTag Auditor - Chrome & Edge Extension ✨
 
-<img src="https://raw.githubusercontent.com/FPT-BangPV2/headtag-checker/main/extension/icon.png" align="right" width="128px"/>
+<img src="https://raw.githubusercontent.com/FPT-BangPV2/headtag-checker/main/extension/assets/icon.png" align="right" width="128px"/>
 
 **Phát hiện ngay lập tức các lỗi SEO nghiêm trọng trong phần `<head>` và heading trên trang:**
 

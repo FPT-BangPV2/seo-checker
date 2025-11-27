@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <title>MetaTag Auditor Pro</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <img src="../assets/icon512.png" alt="Logo" class="logo" />
+        <h1>MetaTag Auditor <span class="pro">Pro</span></h1>
+        <p class="url" id="url">Đang tải...</p>
+      </div>
+      <div class="actions">
+        <button id="scanBtn" class="btn primary">Quét ngay</button>
+      </div>
+      <div class="summary">
+        <div class="stat error">
+          <div class="count" id="errors">0</div>
+          <div class="label">Lỗi nghiêm trọng</div>
+        </div>
+        <div class="stat warning">
+          <div class="count" id="warnings">0</div>
+          <div class="label">Cảnh báo</div>
+        </div>
+      </div>
+      <div class="result" id="result">
+        <div class="loading">
+          <div class="spinner"></div>
+          <p>Nhấn "Quét ngay" để bắt đầu kiểm tra</p>
+        </div>
+      </div>
+      <div class="export-buttons">
+        <button id="copyJson" class="btn secondary">Copy JSON</button>
+        <button id="downloadCsv" class="btn success">Download CSV</button>
+      </div>
+    </div>
+    
+    <div class="footer">v2.0 • 100% Offline • Made with ❤️ for SEO & Dev</div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
