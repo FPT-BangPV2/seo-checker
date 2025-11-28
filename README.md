@@ -29,7 +29,7 @@ Phù hợp cho: SEO specialist, Front-end Dev, Content Editor, Agency kiểm tra
 [![GitHub stars](https://img.shields.io/github/stars/username/metatag-auditor?style=for-the-badge)](https://github.com/username/metatag-auditor/stargazers)
 
 ## Demo (GIF/Video)
-
+- Upcoming
 ![Demo](assets/demo.gif)
 
 ## Current Features
