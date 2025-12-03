@@ -1,48 +1,57 @@
+<!-- popup/popup.html -->
 <!DOCTYPE html>
 <html lang="vi">
   <head>
     <meta charset="utf-8" />
-    <title>MetaTag Auditor Pro</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>SEO Tag Inspector</title>
+    <link rel="stylesheet" href="popup.css" />
   </head>
   <body>
     <div class="container">
-      <div class="header">
-        <img src="../assets/icon512.png" alt="Logo" class="logo" />
-        <h1>MetaTag Auditor <span class="pro">Pro</span></h1>
-        <p class="url" id="url">Đang tải...</p>
+      <!-- Logo + Title -->
+      <div class="header-top">
+        <img src="../icons/icon-512.png" alt="Logo" class="logo" />
+        <h1>SEO Tag Inspector <span class="pro">Pro</span></h1>
       </div>
+      <!-- URL riêng biệt, đẹp lung linh -->
+      <div class="url-bar">
+        <svg
+          width="14"
+          height="14"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+          <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+        </svg>
+        <span id="url" class="url-text">Loading...</span>
+      </div>
+      <!-- Stats -->
+      <div class="stats">
+        <div class="stat errors"><span id="errors">0</span> Errors</div>
+        <div class="stat warnings"><span id="warnings">0</span> Warnings</div>
+      </div>
+      <!-- Actions -->
       <div class="actions">
-        <button id="scanBtn" class="btn primary">Quét ngay</button>
+        <button id="scanBtn" class="btn primary">Scan Page</button>
+        <button id="clearBtn" class="btn secondary">Clear</button>
       </div>
-      <div class="summary">
-        <div class="stat error">
-          <div class="count" id="errors">0</div>
-          <div class="label">Lỗi nghiêm trọng</div>
+      <!-- Result Area -->
+      <div id="result" class="result-area"></div>
+      <!-- Footer -->
+      <div class="footer">
+        <div class="export-bar">
+          <button id="copyJson" class="btn small btn-json" title="Copy JSON">Code JSON</button>
+          <button id="downloadCsv" class="btn small btn-csv" title="Download CSV">
+            Download CSV
+          </button>
         </div>
-        <div class="stat warning">
-          <div class="count" id="warnings">0</div>
-          <div class="label">Cảnh báo</div>
-        </div>
-      </div>
-      <div class="result" id="result">
-        <div class="loading">
-          <div class="spinner"></div>
-          <p>Nhấn "Quét ngay" để bắt đầu kiểm tra</p>
-        </div>
-      </div>
-      <div class="export-buttons">
-        <button id="copyJson" class="btn secondary">Copy JSON</button>
-        <button id="downloadCsv" class="btn success">Download CSV</button>
+        <span>v2.8.0 • 100% Offline • Made with ❤️ for SEO & Dev</span>
       </div>
     </div>
-    
-    <div class="footer">v2.0 • 100% Offline • Made with ❤️ for SEO & Dev</div>
-
-    <script src="popup.js"></script>
+    <script type="module" src="popup.js"></script>
   </body>
 </html>
