@@ -1,6 +1,6 @@
 # SEO Tag Inspector - Chrome & Edge Extension ✨
 
-<img src="https://raw.githubusercontent.com/FPT-BangPV2/headtag-checker/HEAD/extension/icons/icon-512.png" align="right" width="128px"/>
+<img src="https://FPT-BangPV2.github.io/headtag-checker/extension/icons/icon-512.png" align="right" width="128px"/>
 
 Instantly detect critical SEO issues in the `<head>` section and heading structure of any webpage.
 
