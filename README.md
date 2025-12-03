@@ -1,4 +1,4 @@
-# MetaTag Auditor - Chrome & Edge Extension ✨
+# SEO Tag Inspector - Chrome & Edge Extension ✨
 
 <img src="https://raw.githubusercontent.com/FPT-BangPV2/headtag-checker/main/extension/assets/icon.png" align="right" width="128px"/>
 
@@ -32,6 +32,15 @@ Phù hợp cho: SEO specialist, Front-end Dev, Content Editor, Agency kiểm tra
 
 ![Demo](assets/demo.gif)
 
+## Structure
+
+```
+→ Popup → chrome.runtime.sendMessage({ action: "runScan" }) 
+→ Background → chrome.tabs.sendMessage(tabId, msg) 
+→ Content script (listener).
+
+```
+
 ## Current Features
 
 - Phát hiện thẻ trùng lặp trong `<head>` (title, meta description, canonical, robots, og:title, og:description…)
@@ -58,13 +67,6 @@ Phù hợp cho: SEO specialist, Front-end Dev, Content Editor, Agency kiểm tra
 
 Edge cũng làm tương tự tại `edge://extensions`
 
-## Publish to Store (Successfully Tested)
-
-- Đã publish trên cả Chrome Web Store và Microsoft Edge Add-ons
-
-- File `manifest.json` dùng manifest v3 chuẩn
-
-- Tối ưu dung lượng < 200KB
 
 ## Upcoming Features (In Development & Open for Suggestions)
 

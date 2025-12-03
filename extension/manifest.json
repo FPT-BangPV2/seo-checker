@@ -1,20 +1,25 @@
 {
   "manifest_version": 3,
-  "name": "HeadTag Checker",
+  "name": "SEO Tag Inspector",
   "version": "2.0.0",
-  "description": "HeadTag checker - Chrome & Edge Extension",
+  "description": "SEO Tag Inspector - Chrome & Edge Extension",
   "icons": {
-    "512": "assets/icon512.png"
+    "512": "icons/icon-512.png"
   },
   "permissions": ["activeTab", "scripting", "storage", "tabs"],
   "action": {
     "default_popup": "popup/popup.html",
-    "default_title": "HeadTag checker"
+    "default_title": "SEO Tag Inspector"
+  },
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background/service-worker.js",
+    "type": "module"
   },
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["content/content.js"],
+      "js": ["content/index.js"],
       "run_at": "document_end"
     }
   ],
@@ -23,9 +28,5 @@
       "resources": ["assets/*.png"],
       "matches": ["<all_urls>"]
     }
-  ],
-  "host_permissions": ["<all_urls>"],
-  "background": {
-    "service_worker": "background/background.js"
-  }
+  ]
 }
