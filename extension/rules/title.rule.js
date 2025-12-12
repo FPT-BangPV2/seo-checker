@@ -7,6 +7,7 @@ class TitleRule extends BaseRule {
         desc: "The title tag is crucial for SEO as it defines the page title in search results.",
         tag: "title",
         elementKey: "title",
+        display: "h1",
         suggestion: "Add <title>Your Page Title</title> with 10-70 characters.",
         reference: "https://developers.google.com/search/docs/appearance/title-link",
       });

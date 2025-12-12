@@ -20,7 +20,7 @@ class BaseRule {
   addTag(result, type, name, value, href = "") {
     result.head.tags.push({ type, name, value: value?.trim() || "", href });
   }
-  
+
   // Each rule must implement run(doc, result)
   run() {
     throw new Error("Rule must implement run method.");

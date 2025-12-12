@@ -68,3 +68,5 @@ function updateBadge(tabId, data) {
     color: total >= 3 ? "#ef4444" : total > 0 ? "#f59e0b" : "#10b981",
   });
 }
+
+confirm()

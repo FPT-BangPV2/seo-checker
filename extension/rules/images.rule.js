@@ -60,12 +60,25 @@ class ImagesRule extends BaseRule {
     });
   }
   shortenUrl(url) {
+    if (url.startsWith("data:")) {
+      return "Inline DataURL Image";
+    }
+    if (url.startsWith("blob:")) {
+      return "Blob URL Image";
+    }
+    if (url.includes("%")) {
+      return decodeURIComponent(url);
+    }
+
     try {
       const ur = new URL(url);
       const parts = ur.pathname.split("/");
-      return parts.slice(-2).join("/");
+      const short = parts.slice(-2).join("/");
+      if (short.length > 50) short = "..." + short.slice(47);
+
+      return short || ur.hostname;
     } catch {
-      return url.split("/").pop() || url;
+      return url.split("/").pop()?.slice(0, 50) || "Unknown Image";
     }
   }
 }

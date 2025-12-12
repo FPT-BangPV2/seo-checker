@@ -19,7 +19,7 @@ const files = [
   "extension/rules/images.rule.js",
   "extension/rules/duplicates.rule.js",
   "extension/rules/structuredData.rule.js",
-  "extension/content/entry.js", // ← Entry point (performScan + listener)
+  "extension/content.js", // ← Entry point (performScan + listener)
   "extension/highlighter/index.js",
 ];
 

@@ -18,6 +18,21 @@ const tabs = document.querySelectorAll(".tab");
 let currentTab = "head";
 let scanData = null;
 
+async function clearAll() {
+  errorsEl.textContent = "0";
+  warningsEl.textContent = "0";
+  headCountEl.textContent = "(0)";
+  bodyCountEl.textContent = "(0)";
+  resultEl.innerHTML = '<div class="loading"><p>Click "Scan Page" to start</p></div>';
+
+  scanData = null;
+
+  const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+  if (tab?.id) {
+    chrome.tabs.sendMessage(tab.id, { action: "clearHighlight" }).catch(() => {});
+  }
+}
+
 async function init() {
   const tabsQuery = await chrome.tabs.query({ active: true, currentWindow: true });
   const activeTab = tabsQuery[0];
@@ -27,19 +42,23 @@ async function init() {
 
   console.log("scanData::::", scanData);
   if (scanData) renderResult();
+  else await clearAll();
 }
 
 function renderResult() {
   if (!scanData) {
-    resultEl.innerHTML = '<div class="loading"><p>Click "Scan Page" to start</p></div>';
+    clearAll();
     return;
   }
+
   errorsEl.textContent = scanData.summary.errors;
   warningsEl.textContent = scanData.summary.warnings;
+
   const headTotal = scanData.head.errors.length + scanData.head.warnings.length;
   const bodyTotal = scanData.body.errors.length + scanData.body.warnings.length;
   headCountEl.textContent = `(${headTotal})`;
   bodyCountEl.textContent = `(${bodyTotal})`;
+
   renderTabContent();
 }
 
@@ -49,14 +68,14 @@ function renderTabContent() {
 
   if (!section.errors.length && !section.warnings.length) {
     html =
-      '<div class="perfect"><span class="perfect-icon">✅</span><strong>Perfect!</strong><p class="muted">No issues found in this section.</p></div>';
+      '<div class="perfect"><span class="perfect-icon">✅</span><p class="muted">No issues found in this section.</p></div>';
   }
 
   html += createAccordion("Errors", section.errors, "error");
   html += createAccordion("Warnings", section.warnings, "warning");
 
   if (currentTab === "head") {
-    html += '<h4 class="section-title">Tags</div>';
+    html += '<h4 class="section-title">Tags Important</div>';
     html += createTagGrid(scanData.head.tags);
   }
 
@@ -100,9 +119,11 @@ function createIssueCard(group, type) {
     .map(
       (issue) => `
         <div class="card-list">
-          <p class="card-desc">${issue.desc}</p>
+          <p class="card-desc">${issue.desc || ""}</p>
           <p class="card-tip">Suggestion: ${issue.suggestion}</p>
-          <p class="card-tip">Reference: <a href="${issue.reference}" target="_blank">Google Docs</a></p>
+          <p class="card-tip">Reference: <a href="${
+            issue.reference || ""
+          }" target="_blank">Google Docs</a></p>
         </div>
         `
     )
@@ -128,7 +149,7 @@ function createTagGrid(tags) {
         <div class="tag-icon">${tag.type[0].toUpperCase()}</div>
         <div class="tag-label">${tag.name}</div>
       </div>
-      <div class="tag-value truncate-3-lines">${tag.value || tag.href}</div>
+      <div class="tag-value truncate-3-lines">${tag.value || tag.href || ""}</div>
       </div>
    `;
   });
@@ -146,16 +167,13 @@ tabs.forEach((tab) => {
 });
 
 scanBtn.addEventListener("click", async () => {
+  await clearAll();
+
   resultEl.innerHTML = '<div class="loading"><div class="spinner"></div><p>Scanning...</p></div>';
   const res = await sendRuntimeMessage({ action: "runScan" });
-  if (res.success) {
-    scanData =
-      res.result?.data ||
-      (await getLastScanForTab(
-        (
-          await chrome.tabs.query({ active: true, currentWindow: true })
-        )[0].id
-      ));
+  if (res?.success) {
+    const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+    scanData = res.result?.data || (await getLastScanForTab(tab.id));
     renderResult();
   } else {
     resultEl.innerHTML = '<p class="error">Error: ' + res.error + "</p>";
@@ -163,14 +181,10 @@ scanBtn.addEventListener("click", async () => {
 });
 
 clearBtn.addEventListener("click", async () => {
-  const tabId = (await chrome.tabs.query({ active: true, currentWindow: true }))[0].id;
-  await sendRuntimeMessage({ action: "clearScan", tabId });
-  scanData = null;
-  renderResult();
-  errorsEl.textContent = "0";
-  warningsEl.textContent = "0";
-  headCountEl.textContent = "(0)";
-  bodyCountEl.textContent = "(0)";
+  const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+
+  await sendRuntimeMessage({ action: "clearScan", tabId: tab.id });
+  await clearAll();
 });
 
 copyJsonBtn.addEventListener("click", () => {

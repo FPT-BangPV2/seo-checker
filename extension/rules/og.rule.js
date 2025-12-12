@@ -8,6 +8,7 @@ class OpenGraphRule extends BaseRule {
         code: '<head prefix="og: https://ogp.me/ns#">',
         tag: "head",
         elementKey: "og:prefix",
+        display: "og:prefix",
         suggestion: "Add prefix attribute to <head>.",
         reference: "https://ogp.me/",
       });
@@ -30,6 +31,7 @@ class OpenGraphRule extends BaseRule {
           code: `<meta property="${tag}" content="...">`,
           tag: `meta property="${tag}"`,
           elementKey: tag,
+          display: tag,
           suggestion: "Add all required OG tags.",
           reference: "https://developers.facebook.com/docs/sharing/webmasters/",
         });

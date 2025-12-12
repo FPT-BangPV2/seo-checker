@@ -9,7 +9,8 @@ class LanguageRule extends BaseRule {
         title: "Missing lang attribute",
         desc: "Specifies page language for accessibility and SEO.",
         tag: "html",
-        elementKey: "html:lang",
+        elementKey: "lang",
+        display: "html:lang",
         suggestion: 'Add <html lang="en"> or appropriate code.',
         reference: "https://developers.google.com/search/docs/advanced/guidelines/language-of-page",
       });

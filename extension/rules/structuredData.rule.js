@@ -5,9 +5,12 @@ class StructuredDataRule extends BaseRule {
       this.pushIssue(result, "head", this.severityMap.warning, {
         title: "Missing Structured Data (JSON-LD)",
         desc: "Enhances search results with rich snippets.",
+        tag: "script",
+        elementKey: "structured-data",
+        display: "script:application/ld+json",
         suggestion: 'Add <script type="application/ld+json">{...}</script>.',
         reference:
-          "https://developers.google.com/search/docs/advanced/structured-data/intro-structured-data",
+          "https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data",
       });
     } else {
       this.addTag(result, "script", "application/ld+json", "Present");
